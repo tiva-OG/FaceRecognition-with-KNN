@@ -8,6 +8,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="C:\Users\tiva\Desktop\GuessWho\requirements.txt" />
+    <option name="versionSpecifier" value="Don't specify version" />
     <option name="modifyBaseFiles" value="true" />
   </component>
 </module>

@@ -1,1 +1,9 @@
-setuptools~=68.2.0
+dlib
+face-recognition
+face-recognition-models
+imutils
+numpy
+opencv-python
+Pillow
+scikit-learn
+# -e .

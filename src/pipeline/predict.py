@@ -12,11 +12,11 @@ from src.utils import load_object
 
 def predict(img_path: str, model_path: str, labels_path: str, save_path="artifacts/results", show=False):
     """
-    :type img_path: str: path to the image
-    :param model_path: str: path to the saved model
-    :param labels_path: str: path to the saved labels
-    :param save_path: str: path to save the resulting image
-    :type show: bool: display image after recognizing faces
+    :type img_path: path to the image
+    :param model_path: path to the saved model
+    :param labels_path: path to the saved labels
+    :param save_path: path to save the resulting image
+    :type show: display image after recognizing faces
     """
 
     try:

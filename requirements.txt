@@ -6,4 +6,6 @@ numpy
 opencv-python
 Pillow
 scikit-learn
+# you may want to uncomment the line below on your first run to setup the project
+# comment it out on subsequent runs
 # -e .

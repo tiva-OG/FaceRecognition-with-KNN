@@ -1,6 +1,4 @@
-import logging
 import os
-import pickle
 import sys
 from dataclasses import dataclass
 
@@ -9,6 +7,8 @@ import face_recognition
 import imutils
 
 from src.exception import CustomException
+from src.logger import logging
+from src.utils import save_object
 
 
 @dataclass
@@ -74,8 +74,7 @@ class DataTransformation:
                         img_names.append(img_name)
 
             data = {"encodings": img_encodings, "names": img_names}
-            with open(self.transformation_config.encodings_path, "wb") as encodings_file:
-                encodings_file.write(pickle.dumps(data))
+            save_object(self.transformation_config.encodings_path, data)
 
             logging.info("Data transformation completed.")
 

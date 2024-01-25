@@ -1,1 +1,1 @@
-## GuessWho face recognition program
+## Face Recognition with KNN

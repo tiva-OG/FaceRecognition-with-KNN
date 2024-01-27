@@ -24,7 +24,7 @@ def get_packages(file_path: str) -> List[str]:
 
 if __name__ == '__main__':
     setup(
-        name='GuessWho',
+        name='FaceRecognition-with-KNN',
         version='1.0.0',
         author='tiva',
         packages=find_packages(),

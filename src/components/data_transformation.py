@@ -13,7 +13,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    encodings_path = "artifacts/pickles/encodings.pkl"
+    encodings_path = "artifacts/encodings.pkl"
 
 
 class DataTransformation:
@@ -30,21 +30,21 @@ class DataTransformation:
             # convert original image from BGR to RGB
             rgb_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-            # add RGB to augmented images
+            # add RGB to augmented data
             augmented_imgs.append(rgb_img)
-            # rotate image by 10_deg and add to augmented images
+            # rotate image by 10_deg and add to augmented data
             augmented_imgs.append(imutils.rotate_bound(rgb_img, 10))
-            # rotate image by -10_deg and add to augmented images
+            # rotate image by -10_deg and add to augmented data
             augmented_imgs.append(imutils.rotate_bound(rgb_img, -10))
-            # rotate image by 30_deg and add to augmented images
+            # rotate image by 30_deg and add to augmented data
             augmented_imgs.append(imutils.rotate_bound(rgb_img, 30))
-            # rotate image by -30_deg and add to augmented images
+            # rotate image by -30_deg and add to augmented data
             augmented_imgs.append(imutils.rotate_bound(rgb_img, -30))
-            # flip image horizontally and add to augmented images
+            # flip image horizontally and add to augmented data
             augmented_imgs.append(cv2.flip(rgb_img, 1))
-            # increase image brightness and add to augmented images
+            # increase image brightness and add to augmented data
             augmented_imgs.append(cv2.convertScaleAbs(rgb_img, alpha=1.5, beta=0))
-            # decrease image brightness and add to augmented images
+            # decrease image brightness and add to augmented data
             augmented_imgs.append(cv2.convertScaleAbs(rgb_img, alpha=0.5, beta=0))
 
             return augmented_imgs

@@ -9,7 +9,7 @@ from src.logger import logging
 
 @dataclass
 class DataIngestionConfig:
-    data_path = "artifacts/images/"
+    data_path = "artifacts/data/train"
 
 
 class DataIngestion:

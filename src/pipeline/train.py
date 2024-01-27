@@ -1,4 +1,3 @@
-# import os
 import sys
 from dataclasses import dataclass
 
@@ -12,8 +11,8 @@ from src.utils import load_object, save_object
 
 @dataclass
 class ModelTrainerConfig:
-    model_path = "artifacts/pickles/model.pkl"
-    labels_path = "artifacts/pickles/labels.pkl"
+    model_path = "artifacts/model.pkl"
+    labels_path = "artifacts/labels.pkl"
 
 
 class ModelTrainer:

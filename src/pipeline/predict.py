@@ -9,21 +9,16 @@ from src.exception import CustomException
 from src.logger import logging
 from src.utils import load_object
 
+MODEL_PATH = "artifacts/model.pkl"
+LABELS_PATH = "artifacts/labels.pkl"
 
-def predict(img_path: str, model_path: str, labels_path: str, save_path="artifacts/results", show=False):
-    """
-    :type img_path: path to the image
-    :param model_path: path to the saved model
-    :param labels_path: path to the saved labels
-    :param save_path: path to save the resulting image
-    :type show: display image after recognizing faces
-    """
 
+def predict(img_path: str, save_path="artifacts/results", show=False):
     try:
         img_name = os.path.basename(img_path)
 
-        model = load_object(model_path)
-        labels = load_object(labels_path)
+        model = load_object(MODEL_PATH)
+        labels = load_object(LABELS_PATH)
         image = cv2.imread(img_path)
         rgb_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -46,9 +41,9 @@ def predict(img_path: str, model_path: str, labels_path: str, save_path="artifac
                 names.append("UNKNOWN")
 
         for name, (top, right, bottom, left) in zip(names, face_locations):
-            cv2.rectangle(image, (left, top), (right, bottom), (255, 0, 0), 2)
-            top = (top - 15) if (top - 15) > 15 else (top + 15)
-            cv2.putText(image, name, (left, top), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255, 0, 0), 2)
+            cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 1)
+            top = (top - 10) if (top - 10) > 10 else (top + 10)
+            cv2.putText(image, name, (left, top), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 1)
 
         if not os.path.exists(save_path):
             os.makedirs(save_path)
@@ -65,9 +60,7 @@ def predict(img_path: str, model_path: str, labels_path: str, save_path="artifac
 
 
 if __name__ == "__main__":
-    model_path = "artifacts/pickles/model.pkl"
-    labels_path = "artifacts/pickles/labels.pkl"
-    img_paths = "artifacts/images/test"
+    img_paths = "artifacts/data/test"
 
     for img_path in paths.list_images(img_paths):
-        predict(img_path, model_path, labels_path, show=True)
+        predict(img_path, show=True)
